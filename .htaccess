@@ -1,0 +1,10 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/infinity/domains/infinitynp.fun/public_html/home/index.html"
+PassengerBaseURI "/"
+PassengerNodejs "/home/infinity/nodevenv/domains/infinitynp.fun/nodeapp/22/bin/node"
+PassengerAppType node
+PassengerStartupFile server/server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+Redirect 301 /www.infinitynp.fun http://infinitynp.fun
+RewriteEngine On
+

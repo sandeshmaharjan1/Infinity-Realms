@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin - Infinity Realms</title>
+  <link rel="icon" type="image/x-icon" href="../Assets/Images/favicon.ico.png">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+ <div class="admin-shell">
+   <header>
+     <h1>Admin Panel</h1>
+     <div id="loginArea">
+       <input type="password" id="adminPass" placeholder="Admin password" />
+       <button id="loginBtn">Login</button>
+     </div>
+   </header>
+
+    <main id="adminMain" style="display:none">
+      <section class="panel">
+        <h2>Database Management</h2>
+        <div class="database-controls">
+          <p><strong>⚠️ Warning:</strong> This will permanently delete all users and purchases!</p>
+          <button id="clearDatabaseBtn" class="danger-btn">Clear All Data</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Announcements</h2>
+        <textarea id="announceText" placeholder="Type announcement..." rows="3"></textarea>
+        <button id="sendAnnounce">Send Announcement</button>
+      </section>
+
+      <section class="panel">
+        <h2>Registered Users</h2>
+        <div id="usersList">Loading...</div>
+      </section>
+
+      <section class="panel">
+        <h2>Shop Management</h2>
+        <div class="shop-management">
+          <div class="sale-controls">
+            <h3>Global Sale Management</h3>
+            <div class="form-group">
+              <label for="globalSalePercentage">Global Sale Percentage (%)</label>
+              <input type="number" id="globalSalePercentage" placeholder="0" min="0" max="90">
+              <button id="applyGlobalSale" class="primary-btn">Apply Global Sale</button>
+              <button id="removeGlobalSale" class="secondary-btn">Remove Global Sale</button>
+            </div>
+          </div>
+
+          <div class="product-management">
+            <h3>Individual Product Sales</h3>
+            <div id="productsList">Loading products...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Purchases</h2>
+        <div id="purchasesList">Loading...</div>
+      </section>
+
+      <section class="panel">
+        <h2>Gallery Management</h2>
+        <div class="gallery-form">
+          <div class="form-group">
+            <label for="galleryImageUrl">Image URL</label>
+            <input type="text" id="galleryImageUrl" placeholder="Enter image URL or upload below">
+            <div class="upload-area">
+              <label for="galleryImageUpload" class="upload-label">
+                <ion-icon name="cloud-upload-outline"></ion-icon>
+                <span>Upload Image</span>
+              </label>
+              <input type="file" id="galleryImageUpload" accept="image/*" style="display: none;">
+            </div>
+            <div id="imagePreview" class="image-preview"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="galleryTitle">Title</label>
+            <input type="text" id="galleryTitle" placeholder="Enter image title">
+          </div>
+          
+          <div class="form-group">
+            <label for="galleryDescription">Description</label>
+            <textarea id="galleryDescription" placeholder="Enter image description" rows="3"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="galleryCategory">Category</label>
+            <select id="galleryCategory">
+              <option value="events">Events</option>
+              <option value="builds">Builds</option>
+              <option value="players">Players</option>
+              <option value="seasons">Past Seasons</option>
+            </select>
+          </div>
+          
+  <script src="admin.js"></script>
+</body>
+</html>
+          <button id="addGalleryItem" class="primary-btn">Add Gallery Item</button>
+        </div>
+        
+        <div class="gallery-items-list">
+          <h3>Existing Gallery Items</h3>
+          <div id="galleryItemsList" class="items-grid">
+            <!-- Gallery items will be loaded here -->
+            <div class="empty-message">No gallery items found.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>

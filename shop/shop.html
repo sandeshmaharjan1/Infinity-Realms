@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Store - INFINITY REALMS</title>
+    <link rel="icon" type="image/x-icon" href="../Assets/Images/favicon.ico.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+  @media (max-width: 768px) {
+    .social-link {
+      display: none !important;
+    }
+  }
+ 
+
+</style>
+
+</head>
+<body class="shop-body">
+    <!-- Removed Hero Background Section -->
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <a href="../home/index.html">
+                        <img src="../Assets/Images/logo1.png" alt="Infinity Realms Logo">
+                    </a>
+                </div>
+
+                <div class="nav-list" id="nav-list">
+                    <div class="close-btn" id="close-btn">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
+
+                    <ul>
+                        <li><a href="../index.html"><ion-icon name="home"></ion-icon>Home</a></li>
+                        <li><a href="/shop/shop.html" class="active"><ion-icon name="cart"></ion-icon>Shop</a></li>
+                        <li><a href="/vote/vote.html"><ion-icon name="add-circle"></ion-icon>Vote</a></li>
+                        <li><a href="../index.html#gallery"><ion-icon name="images"></ion-icon>Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <ion-icon name="menu-outline"></ion-icon><span>ᴍᴇɴᴜ</span>
+                </div>
+            </div>
+
+
+            <div class="nav-right">
+                <!-- Actions (Cart & Login) -->
+                <button id="loginBtn" class="login-btn">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <span>Login</span>
+                </button>
+                <button id="cartBtn" class="cart-btn">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="cart-text">Cart</span>
+                    <span id="cartCount" class="cart-count">0</span>
+                </button>
+
+                <a href="https://discord.gg/qNDSCNyMKx" class="social-link" target="_blank" display:none>
+                    <ion-icon name="logo-discord"></ion-icon>
+                </a>
+                <a href="https://www.tiktok.com/@infinity_realms19" class="social-link" target="_blank">
+                    <ion-icon name="logo-tiktok"></ion-icon>
+                </a>
+                <a href="https://www.youtube.com/@infinitynp/shorts" class="social-link" target="_blank">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+                <a href="https://www.instagram.com/infinityrealmsofficial/" class="social-link" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Shop Content -->
+    <main class="shop-container">
+        <!-- Server Status moved into Featured sidebar as a card -->
+
+        <!-- Category Filters -->
+        <div class="category-filters animate__animated animate__fadeIn">
+            <div class="filter-wrapper">
+                <button class="category-btn active" data-category="all" class="all-items">
+                    <ion-icon name="grid-outline"></ion-icon>
+                    <span>All Items</span>
+                </button>
+                <button class="category-btn" data-category="ranks">
+                    <ion-icon name="star-outline"></ion-icon>
+                    <span>Ranks</span>
+                </button>
+                <button class="category-btn" data-category="keys">
+                    <ion-icon name="key-outline"></ion-icon>
+                    <span>Keys</span>
+                </button>
+                <button class="category-btn" data-category="coins">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    <span>Coins</span>
+                </button>
+            </div>
+            <div class="sort-wrapper">
+                <select id="sortOptions" class="sort-select">
+                    <option value="default">Sort By</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name-asc">Name: A to Z</option>
+                    <option value="name-desc">Name: Z to A</option>
+                </select>
+            </div>
+            <div class="search-wrapper">
+                <ion-icon name="search-outline"></ion-icon>
+                <input type="text" id="shopSearch" placeholder="Search items...">
+            </div>
+        </div>
+
+        <!-- Shop Content Wrapper -->
+        <div class="shop-content-wrapper">
+            <!-- Featured Items Sidebar (Moved to Left) -->
+            <div class="featured-sidebar">
+                <h3 class="featured-title">
+                    <ion-icon name="flame-outline"></ion-icon>
+                    Popular Items
+                </h3>
+                <div class="featured-items" id="featuredItems">
+                    <!-- Popular items will be dynamically inserted here -->
+                </div>
+
+                <!-- Server Status Card below Popular Items -->
+                <div class="server-status-widget">
+                  <div class="server-status-title">
+                    <ion-icon name="pulse-outline"></ion-icon>
+                    Server Status
+                  </div>
+                  <div class="server-status-list">
+                    <div class="server-status-item">
+                      <div class="label">
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Status
+                      </div>
+                      <div class="value" id="srv-status">Online</div>
+                    </div>
+                    <div class="server-status-item">
+                      <div class="label">
+                        <ion-icon name="people-outline"></ion-icon>
+                        Online Players
+                      </div>
+                      <div class="value" id="srv-players">0/0</div>
+                    </div>
+                    <div class="server-status-item">
+                      <div class="label">
+                        <ion-icon name="cloud-outline"></ion-icon>
+                        Server IP
+                      </div>
+                      <div class="value" id="srv-ip">infinitynp.fun</div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Products Grid (Main Content) -->
+            <div class="products-grid animate__animated animate__fadeIn" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+                <div class="loading-products">
+                    <div class="loader"></div>
+                    <p>Loading products...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Quick View Modal (moved here for better structure) -->
+    <div class="modal" id="quickViewModal"></div>
+
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+            <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <ion-icon name="card-outline"></ion-icon>
+                Checkout
+            </button>
+        </div>
+    </aside>
+
+        <!-- Payment Mode Selection Modal -->
+        <div class="modal" id="paymentModeModal">
+            <div class="modal-content animate__animated animate__fadeInDown">
+                <div class="modal-header">
+                    <h3>Select Payment Mode</h3>
+                    <button class="close-modal" id="closePaymentModeModal">&times;</button>
+                </div>
+                <div class="payment-modes">
+                    <button class="payment-mode-btn international-mode" id="internationalModeBtn">
+                        <ion-icon name="globe-outline"></ion-icon>
+                        <span>International Mode</span>
+                        <small>Pay with PayPal</small>
+                    </button>
+                    <button class="payment-mode-btn local-mode" id="localModeBtn">
+                        <ion-icon name="flag-outline"></ion-icon>
+                        <span>Local Mode</span>
+                        <small>Nepalese Payment Methods</small>
+                    </button>
+                </div>
+                <div class="mode-info">
+                    <p>Choose your preferred payment method based on your location and preferred currency.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Modal -->
+        <div class="modal" id="paymentModal">
+            <div class="modal-content animate__animated animate__fadeInDown">
+                <div class="modal-header">
+                    <h3 id="paymentModalTitle">Choose Payment Method</h3>
+                    <button class="close-modal" id="closePaymentModal">&times;</button>
+                </div>
+                <div class="payment-methods" id="paymentMethodsContainer">
+                    <!-- Payment methods will be dynamically inserted here -->
+                </div>
+                <div class="payment-info" id="paymentInfo">
+                    <p id="paymentInfoText">Select a payment method to continue.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manual Payment Forms -->
+
+        <!-- eSewa Payment Form -->
+        <div class="modal" id="esewaPaymentModal">
+            <div class="modal-content payment-form-modal animate__animated animate__fadeInDown">
+                <div class="modal-header">
+                    <h3>Pay with eSewa</h3>
+                    <button class="close-modal" id="closeEsewaModal">&times;</button>
+                </div>
+                <div class="payment-form-content">
+                    <div class="qr-code-section">
+                        <h4>Scan QR Code</h4>
+                        <div class="qr-code-container">
+                            <img src="../Assets/Images/esewa.jpg" alt="eSewa QR Code" id="esewaQR">
+                            <p class="qr-instruction">Scan this QR code with your eSewa app</p>
+                        </div>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-amount">
+                            <h4>Total Amount: <span id="esewaAmount">NPR 0</span></h4>
+                        </div>
+                        <div class="wallet-info">
+                            <p><strong>Pay to:</strong> Sandesh Maharjan</p>
+                            <p><strong>eSewa ID:</strong> 9860383070</p>
+                        </div>
+                    </div>
+                    <form id="esewaPaymentForm" class="payment-form">
+                        <div class="form-section">
+                            <h4>Transaction Details</h4>
+                            <div class="form-group">
+                                <label for="esewaTransactionId">
+                                    <ion-icon name="document-text-outline"></ion-icon>
+                                    Transaction ID
+                                </label>
+                                <input type="text" id="esewaTransactionId" name="esewaTransactionId" required placeholder="Enter transaction ID">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    Example: 1234567890 (found in transaction history)
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="esewaPhoneNumber">
+                                    <ion-icon name="call-outline"></ion-icon>
+                                    Phone Number Used
+                                </label>
+                                <input type="tel" id="esewaPhoneNumber" name="esewaPhoneNumber" required placeholder="98XXXXXXXX" pattern="9[78][0-9]{8}">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    The phone number you used to make the payment
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="esewaUsername">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    eSewa Username
+                                </label>
+                                <input type="text" id="esewaUsername" name="esewaUsername" required placeholder="Your eSewa username">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    Your registered eSewa username/account name
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn" id="cancelEsewaPayment">
+                                <ion-icon name="close-circle-outline"></ion-icon>
+                                Cancel
+                            </button>
+                            <button type="submit" class="submit-payment-btn">
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Submit Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Khalti Payment Form -->
+        <div class="modal" id="khaltiPaymentModal">
+            <div class="modal-content payment-form-modal animate__animated animate__fadeInDown">
+                <div class="modal-header">
+                    <h3>Pay with Khalti</h3>
+                    <button class="close-modal" id="closeKhaltiModal">&times;</button>
+                </div>
+                <div class="payment-form-content">
+                    <div class="qr-code-section">
+                        <h4>Scan QR Code</h4>
+                        <div class="qr-code-container">
+                            <img src="../Assets/Images/khalti.jpg" alt="Khalti QR Code" id="khaltiQR">
+                            <p class="qr-instruction">Scan this QR code with your Khalti app</p>
+                        </div>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-amount">
+                            <h4>Total Amount: <span id="khaltiAmount">NPR 0</span></h4>
+                        </div>
+                        <div class="wallet-info">
+                            <p><strong>Pay to:</strong> Sandesh Maharjan</p>
+                            <p><strong>Khalti ID:</strong> 9860383070</p>
+                        </div>
+                    </div>
+                    <form id="khaltiPaymentForm" class="payment-form">
+                        <div class="form-section">
+                            <h4>Transaction Details</h4>
+                            <div class="form-group">
+                                <label for="khaltiTransactionId">
+                                    <ion-icon name="document-text-outline"></ion-icon>
+                                    Transaction ID
+                                </label>
+                                <input type="text" id="khaltiTransactionId" name="khaltiTransactionId" required placeholder="Enter transaction ID">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    Example: KT1234567890ABC (found in transaction details)
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="khaltiPhoneNumber">
+                                    <ion-icon name="call-outline"></ion-icon>
+                                    Phone Number Used
+                                </label>
+                                <input type="tel" id="khaltiPhoneNumber" name="khaltiPhoneNumber" required placeholder="98XXXXXXXX" pattern="9[78][0-9]{8}">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    The phone number you used to make the payment
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="khaltiUsername">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    Khalti Username
+                                </label>
+                                <input type="text" id="khaltiUsername" name="khaltiUsername" required placeholder="Your Khalti username">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    Your registered Khalti username/account name
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn" id="cancelKhaltiPayment">
+                                <ion-icon name="close-circle-outline"></ion-icon>
+                                Cancel
+                            </button>
+                            <button type="submit" class="submit-payment-btn">
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Submit Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- PayPal Payment Form -->
+        <div class="modal" id="paypalPaymentModal">
+            <div class="modal-content payment-form-modal animate__animated animate__fadeInDown">
+                <div class="modal-header">
+                    <h3>Pay with PayPal</h3>
+                    <button class="close-modal" id="closePaypalModal">&times;</button>
+                </div>
+                <div class="payment-form-content paypal-content">
+                    <div class="paypal-instructions">
+                        <h4>PayPal Payment Instructions</h4>
+                        <div class="paypal-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <p>Click the PayPal link below to make your payment</p>
+                                    <a href="https://paypal.me/PrachanSubedi" target="_blank" class="paypal-link-btn">
+                                        <ion-icon name="logo-paypal"></ion-icon>
+                                        Open PayPal Payment
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <p>Complete your payment and note the transaction details</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <p>Fill out the form below with your transaction information</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-amount">
+                            <h4>Total Amount: <span id="paypalAmount">$0.00</span></h4>
+                        </div>
+                        <div class="wallet-info">
+                            <p><strong>Pay to:</strong> Prachan Subedi</p>
+                            <p><strong>PayPal:</strong> prachansubedi4@gmail.com</p>
+                        </div>
+                    </div>
+                    <form id="paypalPaymentForm" class="payment-form">
+                        <div class="form-section">
+                            <h4>Transaction Details</h4>
+                            <div class="form-group">
+                                <label for="paypalTransactionId">
+                                    <ion-icon name="document-text-outline"></ion-icon>
+                                    Transaction ID
+                                </label>
+                                <input type="text" id="paypalTransactionId" name="paypalTransactionId" required placeholder="Enter PayPal transaction ID">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    Example: 123456789ABCDEF (found in PayPal transaction details)
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="paypalEmail">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    PayPal Email Used
+                                </label>
+                                <input type="email" id="paypalEmail" name="paypalEmail" required placeholder="your.email@paypal.com">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    The email address associated with your PayPal account
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="paypalUsername">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    PayPal Username/Name
+                                </label>
+                                <input type="text" id="paypalUsername" name="paypalUsername" required placeholder="Your PayPal name">
+                                <small class="form-hint">
+                                    <ion-icon name="information-circle-outline"></ion-icon>
+                                    Your PayPal account name or display name
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn" id="cancelPaypalPayment">
+                                <ion-icon name="close-circle-outline"></ion-icon>
+                                Cancel
+                            </button>
+                            <button type="submit" class="submit-payment-btn">
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                Submit Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <!-- Enhanced Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content login-modal-content animate__animated animate__fadeInDown">
+            <div class="modal-header login-modal-header">
+                <h2 class="login-modal-title">
+                    <ion-icon name="game-controller-outline"></ion-icon>
+                    <span>INFINITY REALMS</span>
+                </h2>
+                <button class="close-modal login-close-btn">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            
+            <!-- Tabs for Login/Register -->
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="register">
+                    <ion-icon name="person-add-outline"></ion-icon>
+                    <span>Register</span>
+                </button>
+                <button class="tab-btn" data-tab="login">
+                    <ion-icon name="log-in-outline"></ion-icon>
+                    <span>Login</span>
+                </button>
+            </div>
+
+            <!-- Registration Form -->
+            <div id="registrationStep1" class="login-step tab-content active">
+                <div class="login-welcome">
+                    <h3>Create Your Account</h3>
+                    <p>Join thousands of players in INFINITY REALMS</p>
+                </div>
+                <form id="registrationForm" class="login-form" novalidate>
+                    <div class="form-group">
+                        <label for="minecraftUsername">
+                            <ion-icon name="person-outline"></ion-icon>
+                            Minecraft Username
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="text" id="minecraftUsername" placeholder="Enter your username" autocomplete="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            Email Address
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="email" id="emailAddress" placeholder="your.email@example.com" autocomplete="email">
+                        </div>
+                        <small class="form-hint">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            We'll use this for account recovery
+                        </small>
+                    </div>
+                    <button type="submit" class="submit-btn primary-btn">
+                        <span class="btn-text">
+                            <ion-icon name="rocket-outline"></ion-icon>
+                            Create Account
+                        </span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </form>
+                <div class="login-benefits">
+                    <div class="benefits-header">
+                        <ion-icon name="gift-outline"></ion-icon>
+                        <h4>Member Benefits</h4>
+                    </div>
+                    <ul class="benefits-list">
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Save your shopping cart</span>
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Track purchase history</span>
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Exclusive member offers</span>
+                        </li>
+                        <li>
+                            <ion-icon name="checkmark-circle"></ion-icon>
+                            <span>Priority support access</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginStep" class="login-step tab-content">
+                <div class="login-welcome">
+                    <h3>Welcome Back!</h3>
+                    <p>Login to continue your adventure</p>
+                </div>
+                <form id="loginForm" class="login-form" novalidate>
+                    <div class="form-group">
+                        <label for="loginUsername">
+                            <ion-icon name="person-outline"></ion-icon>
+                            Minecraft Username
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="text" id="loginUsername" placeholder="Enter your username" autocomplete="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginEmail">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            Email Address
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="email" id="loginEmail" placeholder="your.email@example.com" autocomplete="email">
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn primary-btn">
+                        <span class="btn-text">
+                            <ion-icon name="log-in-outline"></ion-icon>
+                            Login to Account
+                        </span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </form>
+                <div class="login-footer">
+                    <div class="footer-links">
+                        <a href="#" class="text-link">
+                            <ion-icon name="help-circle-outline"></ion-icon>
+                            Need Help?
+                        </a>
+                        <a href="#" class="text-link">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Messages -->
+            <div id="statusMessage" class="status-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Modal -->
+    <div class="terms-modal" id="termsModal">
+        <div class="terms-modal-content">
+            <div class="terms-modal-header">
+                <h2>
+                    <ion-icon name="document-text-outline"></ion-icon>
+                    Terms & Conditions
+                </h2>
+                <button class="terms-modal-close">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="terms-scrollable">
+                <div class="terms-section">
+                    <h3>⚠️ Important Notice: Rank Validity Period</h3>
+                    <div class="terms-highlight">
+                        <p><strong>All purchased ranks have a validity period of 30 days only.</strong></p>
+                        <p>After 30 days, your rank will expire and you will lose all benefits associated with it.</p>
+                        <p>You must repurchase the rank to continue enjoying the perks.</p>
+                    </div>
+                </div>
+
+                <div class="terms-section">
+                    <h3>📋 General Terms</h3>
+                    <ul>
+                        <li>⏰ <strong>Validity:</strong> Purchased ranks are valid for exactly 30 days from the purchase date.</li>
+                        <li>🔄 <strong>Renewal:</strong> You can repurchase or extend your rank at any time before expiration.</li>
+                        <li>💰 <strong>Refunds:</strong> All purchases are final. No refunds will be provided.</li>
+                        <li>⚡ <strong>Delivery:</strong> Ranks are applied instantly upon successful payment.</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>🎮 Rank Benefits</h3>
+                    <p>Each rank provides specific benefits including:</p>
+                    <ul>
+                        <li>🏷️ <strong>Chat Tags:</strong> Special prefixes in chat</li>
+                        <li>🏠 <strong>Home Points:</strong> Additional home locations</li>
+                        <li>🛡️ <strong>Commands:</strong> Access to special commands</li>
+                        <li>🎯 <strong>Priority:</strong> Enhanced server priority</li>
+                        <li>🎉 <strong>Events:</strong> Exclusive event participation</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>💳 Payment Terms</h3>
+                    <ul>
+                        <li>💵 <strong>Currency:</strong> All prices are in Nepalese Rupees (NPR)</li>
+                        <li>🔒 <strong>Security:</strong> Payments are processed securely through verified gateways</li>
+                        <li>📱 <strong>Methods:</strong> eSewa and Khalti are supported</li>
+                        <li>✅ <strong>Confirmation:</strong> Instant payment confirmation and rank activation</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>🚫 Prohibited Activities</h3>
+                    <ul>
+                        <li>🚫 <strong>Sharing:</strong> Rank benefits cannot be shared or transferred</li>
+                        <li>⚠️ <strong>Abuse:</strong> Misuse of rank privileges may result in immediate termination</li>
+                        <li>💰 <strong>Reselling:</strong> Reselling ranks or benefits is strictly prohibited</li>
+                        <li>🤖 <strong>Automation:</strong> Use of bots or automated systems is not allowed</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h3>📞 Support & Contact</h3>
+                    <p>If you have any questions about your purchase or rank validity:</p>
+                    <ul>
+                        <li>💬 <strong>Discord:</strong> Join our Discord server for support</li>
+                        <li>📧 <strong>Email:</strong> Contact our support team</li>
+                        <li>🌐 <strong>Website:</strong> Check our website for updates</li>
+                    </ul>
+                </div>
+
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="termsCheckbox">
+                    <label for="termsCheckbox">
+                        <strong>I have read and agree to all terms and conditions, including the 30-day rank validity period</strong>
+                    </label>
+                </div>
+            </div>
+
+            <div class="terms-actions">
+                <button class="decline-btn" id="declineTerms">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                    Decline
+                </button>
+                <button class="agree-btn" id="agreeTerms" disabled>
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    I Agree & Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content animate__animated animate__fadeInDown">
+            <div class="modal-header">
+                <h2>Confirm Purchase</h2>
+                <button class="close-modal">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="confirm-content">
+                <div class="confirm-items">
+                    <!-- Items will be listed here -->
+                </div>
+                <div class="confirm-total">
+                    <p>Total Amount:</p>
+                    <p class="total-npr">NPR <span id="confirmTotalNPR">0</span></p>
+                    <p class="total-usd">(≈ $<span id="confirmTotalUSD">0</span>)</p>
+                </div>
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="esewa" checked>
+                            <img src="../Assets/Images/esewa.png" alt="eSewa">
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="khalti">
+                            <img src="../Assets/Images/khalti.png" alt="Khalti">
+                        </label>
+                    </div>
+                </div>
+                <button id="finalizeBtn" class="submit-btn">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    Complete Purchase
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="shop-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>INFINITY REALMS</h4>
+                <p>The ultimate Minecraft experience. Join thousands of players in our community.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-discord"></ion-icon>
+                    </a>
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                    </a>
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../home/index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="../vote/vote.html">Vote</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Rules</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Server Info</h4>
+                <p>IP: infinitynp.fun</p>
+                <p>Version: 1.20.1</p>
+                <p>Status: <span id="footer-status">Online</span></p>
+            </div>
+        </div>
+       <div class="footer-bottom">
+           <p>&copy; 2024 INFINITY REALMS. All rights reserved.</p>
+       </div>
+       </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../js/shop.js"></script>
+    <script src="../js/shop-animations.js"></script>
+      <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navList = document.getElementById("nav-list");
+    const closeBtn = document.getElementById("close-btn");
+
+    menuToggle.addEventListener("click", () => {
+      navList.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      navList.classList.remove("active");
+    });
+  </script>
+</body>
+</html>

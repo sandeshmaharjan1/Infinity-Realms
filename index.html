@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFINITY REALMS - Nepal's #1 Survival Server</title>
+  <meta name="description" content="Join Infinity Realms - Nepal's premier Minecraft survival server with fresh world, stable protection, and weekly events.">
+  <meta name="keywords" content="Minecraft, Survival Server, Nepal, Infinity Realms, Gaming">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./home/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/ionicons@7.1.0/dist/css/ionicons.min.css">
+  <link rel="icon" type="image/x-icon" href="../Assets/Images/favicon.ico.png">
+<!-- AI Chat Widget removed -->
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <div class="menu-toggle" id="menu-toggle">
+        <ion-icon name="menu-outline"></ion-icon><span>ᴍᴇɴᴜ</span>
+      </div>
+
+      <div class="nav-list" id="nav-list">
+        <div class="close-btn" id="close-btn">
+          <ion-icon name="close-outline"></ion-icon>
+        </div>
+
+        <ul>
+          <li><a href="#home"><ion-icon name="home"></ion-icon>Home</a></li>
+          <li><a href="/shop/shop.html"><ion-icon name="cart"></ion-icon>Shop</a></li>
+          <li><a href="/vote/vote.html"><ion-icon name="add-circle"></ion-icon>Vote</a></li>
+          <li><a href="#gallery"><ion-icon name="images"></ion-icon>Gallery</a></li>
+          <li><a href="#rules"><ion-icon name="shield-checkmark"></ion-icon>Rules</a></li>
+        </ul>
+       </div>
+
+       <div class="nav-right">
+         <a href="https://discord.gg/qNDSCNyMKx" class="social-link" target="_blank">
+           <ion-icon name="logo-discord"></ion-icon>
+         </a>
+         <a href="https://www.tiktok.com/@infinity_realms19" class="social-link" target="_blank">
+           <ion-icon name="logo-tiktok"></ion-icon>
+         </a>
+         <a href="https://www.youtube.com/@infinitynp/shorts" class="social-link" target="_blank">
+           <ion-icon name="logo-youtube"></ion-icon>
+         </a>
+         <a href="https://www.instagram.com/infinityrealmsofficial/" class="social-link" target="_blank">
+           <ion-icon name="logo-instagram"></ion-icon>
+         </a>
+       </div>
+    </div>
+  </header>
+
+ <!-- Hero Section -->
+<section class="hero-section" id="home">
+  <div class="hero-image">
+    <img src="../Assets/Images/hero-img-2.png" alt="hero background">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <img src="../Assets/Images/logo1.png" alt="Infinity Realms Logo" class="hero-logo">
+
+    <div class="welcome-box">
+      <h2>Welcome to Infinity Realms!</h2>
+      <p>🌍 Infinity Realms <ion-icon name="arrow-forward"></ion-icon> Nepal's #1 Survival Server! <br> </p>
+      <p class="highlight">Join thousands of players across realms and start your adventure today!</p>
+      
+      <div class="server-status">
+        <div class="status-box">
+          <ion-icon name="server-outline"></ion-icon>
+          <span>Server Status: <span id="serverStatus" class="status-indicator">Checking...</span></span>
+        </div>
+        <div class="status-box">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>Players Online: <span id="playerCount">0</span></span>
+        </div>
+        <div class="copy-ip">
+          <span>infinitynp.fun:25000</span>
+          <button onclick="copyIP()" class="copy-btn">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Online Players Section -->
+<section class="online-players-section">
+  <h2><ion-icon name="people-circle-outline"></ion-icon> Online Players</h2>
+  <div class="players-grid" id="playersGrid">
+    <!-- Players will be dynamically added here -->
+  </div>
+</section>
+
+  <!-- Discord Widget - Positioned in top right corner -->
+  <a href="https://discord.gg/qNDSCNyMKx" target="_blank" class="discord-widget">
+    <div class="discord-top">
+      <ion-icon name="logo-discord"></ion-icon>
+      <div class="discord-info">
+        <span class="discord-count" id="discord-count">Loading...</span>
+        <span class="discord-link">https://discord.gg/qNDSCNyMKx</span>
+        <span class="discord-join">Join our server</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="gallery-container">
+      <h2><ion-icon name="images-outline"></ion-icon> Our Gallery</h2>
+      
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+        <button class="filter-btn" data-filter="builds">Base Review</button>
+        <button class="filter-btn" data-filter="players">Players</button>
+      </div>
+      
+      <div class="gallery-grid">
+        <!-- Gallery items will be dynamically added here -->
+        <div class="gallery-item" data-category="events">
+          <img src="../Assets/Images/event.png" alt="Event Image">
+          <div class="gallery-overlay">
+            <h3>Summer Event 2025</h3>
+            <p>Event winner</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="builds">
+          <img src="../Assets/Images/build.png" alt="Build Image">
+          <div class="gallery-overlay">
+            <h3>Castle Build</h3>
+            <p>Epic castle built by our community</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="players">
+          <img src="../Assets/Images/players.png" alt="Player Image">
+          <div class="gallery-overlay">
+            <h3>Player Gathering</h3>
+            <p>Community meetup in the spawn area</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="events">
+          <img src="../Assets/Images/dashain.png" alt="Dashain Special" onerror="this.src='../Assets/Images/event.png'">
+          <div class="gallery-overlay">
+            <h3>Dashain Special</h3>
+            <p>Celebrating Nepal's biggest festival with special events</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced About Section -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <h2><ion-icon name="information-circle-outline"></ion-icon> About Infinity Realms</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Infinity Realms is Nepal's premier Minecraft survival server, offering an unparalleled gaming experience with fresh worlds, stable protection, and exciting weekly events. Join thousands of players across multiple realms and embark on your ultimate adventure!</p>
+          <div class="about-features">
+            <div class="feature-item">
+              <ion-icon name="earth-outline"></ion-icon>
+              <div class="feature-content">
+                <span class="feature-title">Fresh World</span>
+                <p class="feature-desc">Experience a brand new world with endless exploration and fresh challenges every season.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+              <div class="feature-content">
+                <span class="feature-title">Stable & Protected</span>
+                <p class="feature-desc">Advanced anti-grief protection and 24/7 monitoring ensure a safe and stable gaming environment.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <ion-icon name="calendar-outline"></ion-icon>
+              <div class="feature-content">
+                <span class="feature-title">Weekly Events</span>
+                <p class="feature-desc">Join exciting weekly competitions, tournaments, and special events with amazing rewards.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <ion-icon name="people-outline"></ion-icon>
+              <div class="feature-content">
+                <span class="feature-title">Active Community</span>
+                <p class="feature-desc">Connect with thousands of passionate players in our vibrant and welcoming community.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-number" id="totalPlayers">100+</div>
+            <div class="stat-label">Active Players</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="serverUptime">99.9%</div>
+            <div class="stat-label">Server Uptime</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="worldSize">∞</div>
+            <div class="stat-label">Infinite Possibilities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Server Rules Section -->
+  <section class="rules-section" id="rules">
+    <div class="rules-container">
+      <h2><ion-icon name="shield-checkmark-outline"></ion-icon> Server Rules</h2>
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-icon">
+            <ion-icon name="hammer-outline"></ion-icon>
+          </div>
+          <h3>No Griefing</h3>
+          <p>Respect other players' builds and creations. Griefing will result in immediate ban.</p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">
+            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+          </div>
+          <h3>Be Respectful</h3>
+          <p>Use appropriate language and treat all players with respect in chat and voice channels.</p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">
+            <ion-icon name="bug-outline"></ion-icon>
+          </div>
+          <h3>No Exploits</h3>
+          <p>Using bugs, glitches, or exploits is strictly prohibited and will result in permanent ban.</p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">
+            <ion-icon name="build-outline"></ion-icon>
+          </div>
+          <h3>Fair Play</h3>
+          <p>Play fairly and follow all Minecraft EULA guidelines. No cheating or unfair advantages.</p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">
+            <ion-icon name="people-outline"></ion-icon>
+          </div>
+          <h3>Community First</h3>
+          <p>Help new players and contribute positively to our growing community.</p>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">
+            <ion-icon name="time-outline"></ion-icon>
+          </div>
+          <h3>Active Participation</h3>
+          <p>Stay active and participate in community events to keep the server vibrant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-container">
+      <h2><ion-icon name="star-outline"></ion-icon> What Players Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Infinity Nepal is the best place to play and chill where players from all over the world come together.The community is friendly, staff are supportive, and you always feel welcomed here. Honestly feels like a family. 💜"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="../Assets/Images/dipsan.png" alt="Player Avatar" onerror="this.src='../Assets/Images/default-avatar.png'">
+            </div>
+            <div class="author-info">
+              <h4>Dipsan Gurung</h4>
+              <span>Best Base Built</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"My journey began on Infinity Realms, where I slowly gathered resources and forged lasting friendships along the way. Together, we battled rivals, explored the depths of the server, and crafted unforgettable memories."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="../Assets/Images/archan.png" alt="Player Avatar" onerror="this.src='../Assets/Images/default-avatar.png'">
+            </div>
+            <div class="author-info">
+              <h4>Archan Karki</h4>
+              <span>End-war winner</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"InfinityRealms is an amazing Minecraft server in Nepal where players from all over the world come together. With endless adventures, fun events, and limitless creativity, it's the perfect place to build, play, and share unforgettable moments with friends."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="../Assets/Images/mei.png" alt="Player Avatar" onerror="this.src='../Assets/Images/default-avatar.png'">
+            </div>
+            <div class="author-info">
+              <h4>Cathie user</h4>
+              <span>Youtuber</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <img src="../Assets/Images/logo1.png" alt="Infinity Realms Logo" class="footer-logo">
+          <p>Nepal's premier Minecraft survival server. Join thousands of players in an epic adventure!</p>
+          <div class="footer-social">
+            <a href="https://discord.gg/qNDSCNyMKx" target="_blank" class="social-link">
+              <ion-icon name="logo-discord"></ion-icon>
+            </a>
+            <a href="https://www.tiktok.com/@infinity_realms19" target="_blank" class="social-link">
+              <ion-icon name="logo-tiktok"></ion-icon>
+            </a>
+            <a href="https://www.youtube.com/@infinitynp/shorts" target="_blank" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+            <a href="https://www.instagram.com/infinityrealmsofficial/" target="_blank" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="/shop/shop.html">Shop</a></li>
+              <li><a href="/vote/vote.html">Vote</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#rules">Rules</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="https://discord.gg/qNDSCNyMKx" target="_blank">Discord Server</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#">Staff Team</a></li>
+              <li><a href="#">Events</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Bug Reports</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Server Status</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Get notified about new events, updates, and server news!</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" class="newsletter-input">
+          <button type="submit" class="newsletter-btn">
+            <ion-icon name="send-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copyright">
+      <p>&copy; 2025 Infinity Realms. All rights reserved. Made with <ion-icon name="heart" class="heart-icon"></ion-icon> for the community.</p>
+    </div>
+    <div class="footer-server-info">
+      <span>Server: infinitynp.fun</span>
+      <span>Version: 1.21+</span>
+    </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="../js/home-chat.js"></script>
+
+  <!-- Scripts -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../js/discord_widget.js"></script>
+  <script src="../js/server-status.js"></script>
+  <script src="../js/gallery.js"></script>
+  <script src="../js/home-chat.js"></script>
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navList = document.getElementById("nav-list");
+    const closeBtn = document.getElementById("close-btn");
+
+    menuToggle.addEventListener("click", () => {
+      navList.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      navList.classList.remove("active");
+    });
+  </script>
+

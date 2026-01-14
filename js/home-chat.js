@@ -1,0 +1,1 @@
+// Chat integration removed - using external chat solution

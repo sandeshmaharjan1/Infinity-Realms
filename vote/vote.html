@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vote - Infinity Realms</title>
+  <link rel="icon" type="image/x-icon" href="../Assets/Images/favicon.ico.png">
+  <link rel="stylesheet" href="./vote.css" />
+  <link rel="stylesheet" href="../home/css/style.css" />
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div id="menu-toggle" class="menu-toggle">
+      <ion-icon name="menu-outline"></ion-icon>
+    </div>
+    <nav id="nav-list" class="nav-list">
+      <div id="close-btn" class="close-btn">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </div>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="/shop/shop.html">Shop</a></li>
+        <li><a href="#vote" class="active">Vote</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <a href="https://discord.gg/qNDSCNyMKx" class="social-link" target="_blank">
+        <ion-icon name="logo-discord"></ion-icon>
+      </a>
+      <a href="https://www.tiktok.com/@infinity_realms19" class="social-link" target="_blank">
+        <ion-icon name="logo-tiktok"></ion-icon>
+      </a>
+      <a href="https://www.youtube.com/@infinitynp/shorts" class="social-link" target="_blank">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </a>
+      <a href="https://www.instagram.com/infinityrealmsofficial/" class="social-link" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="vote-container" id="vote">
+  <div class="vote-header">
+    <h1>INFINITY REALMS</h1>
+    <p class="vote-description">
+      Support the server by voting daily! Earn rewards and help Infinity Realms grow. Your votes directly contribute to our server's visibility and success.
+    </p>
+  </div>
+
+  <div class="vote-grid">
+    <!-- Card 1 -->
+    <div class="vote-card slide-up">
+      <div class="vote-site-logo">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </div>
+      <h3 class="vote-site-name">MinecraftServers</h3>
+      <div class="vote-rewards">
+        <p><strong>Rewards:</strong></p>
+        <ul>
+          <li>1000 Money</li>
+          <li>1 Vote Key</li>
+          <li>3 Coins</li>
+        </ul>
+      </div>
+      <a href="https://topminecraftservers.org/vote/31616" target="_blank" class="vote-btn">Vote Now</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="vote-card slide-up delay-1">
+      <div class="vote-site-logo">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </div>
+      <h3 class="vote-site-name">TopG.org</h3>
+      <div class="vote-rewards">
+        <p><strong>Rewards:</strong></p>
+        <ul>
+          <li>1000 Money</li>
+          <li>1 Vote Key</li>
+          <li>3 Coins</li>
+        </ul>
+      </div>
+      <a href="https://topg.org/minecraft-servers/server-676880" target="_blank" class="vote-btn">Vote Now</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="vote-card slide-up delay-2">
+      <div class="vote-site-logo">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </div>
+      <h3 class="vote-site-name">Minecraft-MP.com</h3>
+      <div class="vote-rewards">
+        <p><strong>Rewards:</strong></p>
+        <ul>
+          <li>1000 Money</li>
+          <li>1 Vote Key</li>
+          <li>3 Coins</li>
+        </ul>
+      </div>
+      <a href="https://minecraft-mp.com/server-s350235" target="_blank" class="vote-btn">Vote Now</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="vote-card slide-up delay-3">
+      <div class="vote-site-logo">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </div>
+      <h3 class="vote-site-name">PlanetMinecraft.com</h3>
+      <div class="vote-rewards">
+        <p><strong>Rewards:</strong></p>
+        <ul>
+          <li>1000 Money</li>
+          <li>1 Vote Key</li>
+          <li>3 Coins</li>
+        </ul>
+      </div>
+      <a href="https://topg.org/minecraft-servers/server-676880" target="_blank" class="vote-btn">Vote Now</a>
+    </div>
+  </div>
+
+  <!-- How to Vote Section -->
+  <div class="vote-steps slide-up delay-3">
+    <h2>How to Vote</h2>
+    <div class="steps-grid">
+      <div class="step-card" style="--step: 1">
+        <div class="step-number">1</div>
+        <h3>Enter Username</h3>
+        <p>Use your Minecraft username to receive rewards. Make sure to enter it correctly for proper reward delivery.</p>
+      </div>
+      <div class="step-card" style="--step: 2">
+        <div class="step-number">2</div>
+        <h3>Vote on Sites</h3>
+        <p>Click each site and complete the captcha to vote. You can vote once per day on each site.</p>
+      </div>
+      <div class="step-card" style="--step: 3">
+        <div class="step-number">3</div>
+        <h3>Get Rewards</h3>
+        <p>Join the server and claim your rewards instantly. Rewards are automatically added to your account.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Information Section -->
+  <div class="additional-info slide-up delay-3">
+    <h2>Why Vote?</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <ion-icon name="trophy-outline"></ion-icon>
+        <h3>Earn Rewards</h3>
+        <p>Get in-game currency, keys, and coins for voting daily.</p>
+      </div>
+      <div class="info-card">
+        <ion-icon name="people-outline"></ion-icon>
+        <h3>Support Community</h3>
+        <p>Help Infinity Realms grow and attract more players.</p>
+      </div>
+      <div class="info-card">
+        <ion-icon name="star-outline"></ion-icon>
+        <h3>Boost Rankings</h3>
+        <p>Improve our server's position on voting sites.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>About Infinity Realms</h3>
+      <p>Join our Minecraft server for an unforgettable gaming experience. Explore, build, and connect with players from around the world.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#vote">Vote</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Connect With Us</h3>
+      <p>Discord: discord.gg/CydRZJ56AC</p>
+      <p>IP: infinitynp.fun:25000</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+      <p>&copy; 2025 Infinity Realms. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </div>
+  </footer>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="../js/home-chat.js"></script>
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const navList = document.getElementById("nav-list");
+  const closeBtn = document.getElementById("close-btn");
+
+  menuToggle.addEventListener("click", () => {
+    navList.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    navList.classList.remove("active");
+  });
+</script>
+
+</body>
+</html>
